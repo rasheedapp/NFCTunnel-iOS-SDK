@@ -1,0 +1,41 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name NFCTunnel
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreNFC
+import Foundation
+import Gzip
+import Swift
+import _Concurrency
+import _StringProcessing
+@objc public class NFCTunnelSession : ObjectiveC.NSObject, CoreNFC.NFCNDEFReaderSessionDelegate {
+  weak public var delegate: (any NFCTunnel.NFCTunnelDelegate)?
+  public init(delegate: any NFCTunnel.NFCTunnelDelegate)
+  public func startSession(message: Swift.String = "Hold your iPhone near the NFC tag.")
+  public func updateSessionMessage(message: Swift.String)
+  @objc public func readerSessionDidBecomeActive(_: CoreNFC.NFCNDEFReaderSession)
+  @objc public func readerSession(_: CoreNFC.NFCNDEFReaderSession, didInvalidateWithError error: any Swift.Error)
+  @objc public func readerSession(_: CoreNFC.NFCNDEFReaderSession, didDetectNDEFs _: [CoreNFC.NFCNDEFMessage])
+  @objc public func readerSession(_ session: CoreNFC.NFCNDEFReaderSession, didDetect tags: [any CoreNFC.NFCNDEFTag])
+  public func invalidateSession()
+  @objc deinit
+}
+public enum NFCTunnelError : Swift.Error {
+  case nfcNotSupported
+  case invalidSession
+  case invalidTag
+  case notSuported
+  case invalidMessage
+  case invalidData
+  public static func == (a: NFCTunnel.NFCTunnelError, b: NFCTunnel.NFCTunnelError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol NFCTunnelDelegate : ObjectiveC.NSObject {
+  func onSuccess(data json: Swift.String)
+  func onError(error: (any Swift.Error)?)
+}
+extension NFCTunnel.NFCTunnelError : Swift.Equatable {}
+extension NFCTunnel.NFCTunnelError : Swift.Hashable {}

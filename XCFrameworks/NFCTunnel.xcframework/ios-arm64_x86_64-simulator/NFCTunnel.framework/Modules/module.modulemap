@@ -1,0 +1,4 @@
+framework module NFCTunnel {
+  header "NFCTunnel-Swift.h"
+  requires objc
+}
