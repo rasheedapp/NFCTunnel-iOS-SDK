@@ -7,7 +7,7 @@ target 'Example' do
   use_frameworks!
 
   # Pods for Example
-  pod 'NFCTunnel', '0.1.0'
+  pod 'NFCTunnel', '~> 0.1.0'
 
   target 'ExampleTests' do
     inherit! :search_paths
