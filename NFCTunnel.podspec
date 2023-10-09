@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name             = 'NFCTunnel'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'NFCTunnel is a NFC transmission channel'
   s.homepage         = 'https://github.com/HossamYoussof/NFCTunnel-iOS-SDK.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE.md' }
   s.author           = { 'HossamYoussof' => 'eng.hossam.youssof@gmail.com' }
-  s.source           = { :http => 'https://github.com/HossamYoussof/NFCTunnel-iOS-SDK/releases/download/0.1.1/NFCTunnel-XCFramework.zip' }
+  s.source           = { :http => 'https://github.com/HossamYoussof/NFCTunnel-iOS-SDK/releases/download/0.1.2/NFCTunnel-XCFramework.zip' }
   
   s.library      = 'z'
   s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/NFCTunnel/"' }
